@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 - Number Puzzle</title>
+    <link rel="stylesheet" href="../css/2048.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔢 2048 🔢</h1>
+            <p class="subtitle">Combine Numbers to Reach 2048!</p>
+            <a href="../index.html" class="back-btn">← Back to Games</a>
+        </header>
+        
+        <main>
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="score-section">
+                        <div class="score-item">
+                            <span class="label">Score</span>
+                            <span class="value" id="score">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Best</span>
+                            <span class="value" id="bestScore">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Moves</span>
+                            <span class="value" id="moves">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Highest Tile</span>
+                            <span class="value" id="highestTile">2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <button id="newGameBtn" class="game-btn">New Game</button>
+                        <button id="undoBtn" class="game-btn secondary">Undo (3)</button>
+                        <button id="restartBtn" class="game-btn warning">Restart</button>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <h3>Progress to 2048</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Just Started!</div>
+                    </div>
+                    
+                    <div class="controls-info">
+                        <h3>How to Play</h3>
+                        <div class="control-list">
+                            <div class="control-item">
+                                <span class="key">←→↑↓</span>
+                                <span class="action">Move tiles</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">WASD</span>
+                                <span class="action">Alternative controls</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">Space</span>
+                                <span class="action">New Game</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">U</span>
+                                <span class="action">Undo Move</span>
+                            </div>
+                        </div>
+                        <p class="tip">💡 Combine tiles with the same number to create larger numbers!</p>
+                    </div>
+                </div>
+                
+                <div class="game-board">
+                    <div class="board-container">
+                        <div class="grid-container" id="gridContainer">
+                            <div class="grid-row">
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                                <div class="grid-cell"></div>
+                            </div>
+                        </div>
+                        <div class="tile-container" id="tileContainer">
+                            <!-- Tiles will be dynamically added here -->
+                        </div>
+                        <div class="game-overlay" id="gameOverlay" style="display: none;">
+                            <div class="overlay-content">
+                                <h2 id="overlayTitle">2048 Puzzle</h2>
+                                <p id="overlayMessage">Swipe or use arrow keys to move tiles. When two tiles with the same number touch, they merge into one!</p>
+                                <button id="overlayBtn" class="game-btn">Start Playing</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-settings">
+                    <h3>Game Settings</h3>
+                    <div class="setting">
+                        <label for="gridSize">Grid Size:</label>
+                        <select id="gridSize">
+                            <option value="4" selected>4×4 (Classic)</option>
+                            <option value="5">5×5 (Challenge)</option>
+                            <option value="6">6×6 (Expert)</option>
+                        </select>
+                    </div>
+                    <div class="setting">
+                        <label for="animations">Animations:</label>
+                        <button id="animations" class="toggle-btn active">ON</button>
+                    </div>
+                    <div class="setting">
+                        <label for="soundToggle">Sound:</label>
+                        <button id="soundToggle" class="toggle-btn active">🔊 ON</button>
+                    </div>
+                    <div class="setting">
+                        <label for="colorTheme">Theme:</label>
+                        <select id="colorTheme">
+                            <option value="classic" selected>Classic</option>
+                            <option value="neon">Neon</option>
+                            <option value="pastel">Pastel</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div class="setting">
+                        <button id="resetStats" class="game-btn warning">Reset Statistics</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 2048 - The Ultimate Number Puzzle!</p>
+        </footer>
+    </div>
+    
+    <script src="../js/2048.js"></script>
+</body>
+</html>

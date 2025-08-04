@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Cards - Brain Challenge</title>
+    <link rel="stylesheet" href="../css/memory.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 MEMORY CARDS 🧠</h1>
+            <p class="subtitle">Test Your Memory Skills</p>
+            <a href="../index.html" class="back-btn">← Back to Games</a>
+        </header>
+        
+        <main>
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="score-section">
+                        <div class="score-item">
+                            <span class="label">Moves</span>
+                            <span class="value" id="moves">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Matches</span>
+                            <span class="value" id="matches">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Time</span>
+                            <span class="value" id="timer">00:00</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Best Time</span>
+                            <span class="value" id="bestTime">--:--</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <button id="startBtn" class="game-btn">New Game</button>
+                        <button id="pauseBtn" class="game-btn secondary" style="display: none;">Pause</button>
+                        <button id="hintBtn" class="game-btn warning">Hint (3)</button>
+                    </div>
+                    
+                    <div class="level-info">
+                        <h3>Current Level</h3>
+                        <div class="level-display">
+                            <span class="level-number" id="currentLevel">1</span>
+                            <span class="level-name" id="levelName">Beginner</span>
+                        </div>
+                        <div class="level-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rules-info">
+                        <h3>How to Play</h3>
+                        <ul>
+                            <li>Click cards to flip them</li>
+                            <li>Match pairs of identical cards</li>
+                            <li>Complete in fewest moves</li>
+                            <li>Beat your best time</li>
+                            <li>Use hints sparingly</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="game-board">
+                    <div class="board-container">
+                        <div class="memory-grid" id="memoryGrid">
+                            <!-- Cards will be generated here -->
+                        </div>
+                        <div class="game-overlay" id="gameOverlay">
+                            <div class="overlay-content">
+                                <h2 id="overlayTitle">Memory Challenge</h2>
+                                <p id="overlayMessage">Ready to test your memory? Find all the matching pairs!</p>
+                                <button id="overlayStartBtn" class="game-btn">Start Game</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-settings">
+                    <h3>Game Settings</h3>
+                    <div class="setting">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy (4×3)</option>
+                            <option value="medium" selected>Medium (4×4)</option>
+                            <option value="hard">Hard (6×4)</option>
+                            <option value="expert">Expert (6×6)</option>
+                        </select>
+                    </div>
+                    <div class="setting">
+                        <label for="theme">Card Theme:</label>
+                        <select id="theme">
+                            <option value="animals" selected>Animals</option>
+                            <option value="fruits">Fruits</option>
+                            <option value="shapes">Shapes</option>
+                            <option value="numbers">Numbers</option>
+                        </select>
+                    </div>
+                    <div class="setting">
+                        <label for="soundToggle">Sound:</label>
+                        <button id="soundToggle" class="toggle-btn active">🔊 ON</button>
+                    </div>
+                    <div class="setting">
+                        <label for="showTimer">Timer:</label>
+                        <button id="showTimer" class="toggle-btn active">ON</button>
+                    </div>
+                    <div class="setting">
+                        <button id="resetStats" class="game-btn warning">Reset Statistics</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Memory Cards - Train Your Brain!</p>
+        </footer>
+    </div>
+    
+    <script src="../js/memory.js"></script>
+</body>
+</html>

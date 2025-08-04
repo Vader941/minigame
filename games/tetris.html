@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris - Block Puzzle</title>
+    <link rel="stylesheet" href="../css/tetris.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧩 TETRIS 🧩</h1>
+            <p class="subtitle">Block Puzzle Classic</p>
+            <a href="../index.html" class="back-btn">← Back to Games</a>
+        </header>
+        
+        <main>
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="score-section">
+                        <div class="score-item">
+                            <span class="label">Score</span>
+                            <span class="value" id="score">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Level</span>
+                            <span class="value" id="level">1</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">Lines</span>
+                            <span class="value" id="lines">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="label">High Score</span>
+                            <span class="value" id="highScore">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="next-piece">
+                        <h3>Next</h3>
+                        <canvas id="nextCanvas" width="120" height="120"></canvas>
+                    </div>
+                    
+                    <div class="controls-info">
+                        <h3>Controls</h3>
+                        <div class="control-list">
+                            <div class="control-item">
+                                <span class="key">←→</span>
+                                <span class="action">Move</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">↓</span>
+                                <span class="action">Soft Drop</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">↑</span>
+                                <span class="action">Rotate</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">Space</span>
+                                <span class="action">Hard Drop</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="key">P</span>
+                                <span class="action">Pause</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-board">
+                    <div class="board-container">
+                        <canvas id="gameCanvas" width="300" height="600"></canvas>
+                        <div class="game-overlay" id="gameOverlay">
+                            <div class="overlay-content">
+                                <h2 id="overlayTitle">Ready?</h2>
+                                <p id="overlayMessage">Press Start to begin your Tetris adventure!</p>
+                                <button id="startBtn" class="game-btn">Start Game</button>
+                                <button id="pauseBtn" class="game-btn secondary" style="display: none;">Pause</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-settings">
+                    <h3>Settings</h3>
+                    <div class="setting">
+                        <label for="difficulty">Starting Level:</label>
+                        <select id="difficulty">
+                            <option value="1">Level 1</option>
+                            <option value="5">Level 5</option>
+                            <option value="10">Level 10</option>
+                            <option value="15">Level 15</option>
+                        </select>
+                    </div>
+                    <div class="setting">
+                        <label for="ghostPiece">Ghost Piece:</label>
+                        <button id="ghostPiece" class="toggle-btn active">ON</button>
+                    </div>
+                    <div class="setting">
+                        <label for="soundToggle">Sound:</label>
+                        <button id="soundToggle" class="toggle-btn active">🔊 ON</button>
+                    </div>
+                    <div class="setting">
+                        <button id="resetScores" class="game-btn warning">Reset High Score</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Tetris - Stack 'Em High!</p>
+        </footer>
+    </div>
+    
+    <script src="../js/tetris.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minigames Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 MINIGAMES ARCADE 🎮</h1>
+            <p class="subtitle">Choose Your Game</p>
+        </header>
+        
+        <main>
+            <div class="games-grid">
+                <!-- Battleship -->
+                <div class="game-card" data-game="battleship">
+                    <div class="game-icon">⚓</div>
+                    <h3>Battleship</h3>
+                    <p>Naval combat strategy game. Sink the enemy fleet before they sink yours!</p>
+                    <div class="game-features">
+                        <span class="feature">🎯 Strategic Combat</span>
+                        <span class="feature">🤖 Smart AI</span>
+                        <span class="feature">📊 Statistics</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('battleship')">Play Now</button>
+                </div>
+
+                <!-- Snake -->
+                <div class="game-card" data-game="snake">
+                    <div class="game-icon">🐍</div>
+                    <h3>Snake</h3>
+                    <p>Classic arcade game. Eat food, grow longer, avoid walls and yourself!</p>
+                    <div class="game-features">
+                        <span class="feature">🍎 Growing Challenge</span>
+                        <span class="feature">⚡ Fast Paced</span>
+                        <span class="feature">🏆 High Scores</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('snake')">Play Now</button>
+                </div>
+
+                <!-- Tetris -->
+                <div class="game-card" data-game="tetris">
+                    <div class="game-icon">🧩</div>
+                    <h3>Tetris</h3>
+                    <p>Puzzle classic. Arrange falling blocks to clear lines and score points!</p>
+                    <div class="game-features">
+                        <span class="feature">🧠 Puzzle Logic</span>
+                        <span class="feature">📈 Increasing Speed</span>
+                        <span class="feature">🎵 Sound Effects</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('tetris')">Play Now</button>
+                </div>
+
+                <!-- Memory Cards -->
+                <div class="game-card" data-game="memory">
+                    <div class="game-icon">🧠</div>
+                    <h3>Memory Cards</h3>
+                    <p>Test your memory! Flip cards to find matching pairs in the fewest moves.</p>
+                    <div class="game-features">
+                        <span class="feature">🎴 Card Matching</span>
+                        <span class="feature">⏱️ Timed Challenge</span>
+                        <span class="feature">🌟 Multiple Levels</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('memory')">Play Now</button>
+                </div>
+
+                <!-- 2048 -->
+                <div class="game-card" data-game="2048">
+                    <div class="game-icon">🔢</div>
+                    <h3>2048</h3>
+                    <p>Number puzzle game. Combine tiles to reach the elusive 2048 tile!</p>
+                    <div class="game-features">
+                        <span class="feature">🔄 Tile Merging</span>
+                        <span class="feature">🎯 Strategic Moves</span>
+                        <span class="feature">💫 Smooth Animations</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('2048')">Play Now</button>
+                </div>
+
+                <!-- Go -->
+                <div class="game-card" data-game="go">
+                    <div class="game-icon">⚫</div>
+                    <h3>Go</h3>
+                    <p>Ancient strategy board game. Capture territory and outmaneuver your opponent!</p>
+                    <div class="game-features">
+                        <span class="feature">🧠 Deep Strategy</span>
+                        <span class="feature">� Territory Control</span>
+                        <span class="feature">🤖 AI Opponent</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('go')">Play Now</button>
+                </div>
+            </div>
+
+            <!-- Statistics Section -->
+            <div class="arcade-stats">
+                <h3>🏆 Arcade Statistics</h3>
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalGamesPlayed">0</div>
+                        <div class="stat-label">Games Played</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="favoriteGame">None</div>
+                        <div class="stat-label">Favorite Game</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalPlayTime">0m</div>
+                        <div class="stat-label">Play Time</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Minigames Arcade - Choose Your Adventure!</p>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

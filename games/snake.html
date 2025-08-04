@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake - Classic Arcade</title>
+    <link rel="stylesheet" href="../css/snake.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐍 SNAKE 🐍</h1>
+            <p class="subtitle">Classic Arcade Game</p>
+            <a href="../index.html" class="back-btn">← Back to Games</a>
+        </header>
+        
+        <main>
+            <div class="game-area">
+                <div class="game-info">
+                    <div class="score-display">
+                        <span class="label">Score:</span>
+                        <span class="value" id="score">0</span>
+                    </div>
+                    <div class="high-score-display">
+                        <span class="label">Best:</span>
+                        <span class="value" id="highScore">0</span>
+                    </div>
+                    <div class="speed-display">
+                        <span class="label">Speed:</span>
+                        <span class="value" id="speed">1</span>
+                    </div>
+                </div>
+                
+                <div class="game-board-container">
+                    <canvas id="gameCanvas" width="400" height="400"></canvas>
+                    <div class="game-overlay" id="gameOverlay">
+                        <div class="overlay-content">
+                            <h2 id="overlayTitle">Ready to Play?</h2>
+                            <p id="overlayMessage">Use arrow keys or WASD to control the snake</p>
+                            <button id="startBtn" class="game-btn">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controls-info">
+                    <h3>Controls</h3>
+                    <div class="control-keys">
+                        <div class="key-group">
+                            <div class="key">↑</div>
+                            <div class="key">←</div>
+                            <div class="key">↓</div>
+                            <div class="key">→</div>
+                        </div>
+                        <div class="or">OR</div>
+                        <div class="key-group">
+                            <div class="key">W</div>
+                            <div class="key">A</div>
+                            <div class="key">S</div>
+                            <div class="key">D</div>
+                        </div>
+                    </div>
+                    <p class="tip">💡 Tip: Eat food to grow and increase your score!</p>
+                </div>
+            </div>
+            
+            <div class="game-settings">
+                <h3>Game Settings</h3>
+                <div class="setting">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                        <option value="extreme">Extreme</option>
+                    </select>
+                </div>
+                <div class="setting">
+                    <label for="soundToggle">Sound:</label>
+                    <button id="soundToggle" class="toggle-btn active">🔊 ON</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Snake Game - Eat, Grow, Survive!</p>
+        </footer>
+    </div>
+    
+    <script src="../js/snake.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship - Naval Combat</title>
+    <link rel="stylesheet" href="../css/battleship.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚓ BATTLESHIP ⚓</h1>
+            <p class="subtitle">Naval Combat Simulator</p>
+            <a href="../index.html" class="back-btn">← Back to Games</a>
+        </header>
+        
+        <main>
+            <!-- Game Phase Indicator -->
+            <div class="phase-indicator">
+                <div class="phase active" id="setupPhase">🚢 Ship Placement</div>
+                <div class="phase" id="battlePhase">💥 Battle Phase</div>
+                <div class="phase" id="gameOverPhase">🏆 Game Over</div>
+            </div>
+
+            <!-- Setup Phase -->
+            <div class="setup-area" id="setupArea">
+                <div class="setup-instructions">
+                    <h3>Deploy Your Fleet</h3>
+                    <p>Drag and drop ships onto your grid. Click ship or ↻ button to rotate.</p>
+                </div>
+                
+                <div class="setup-content">
+                    <div class="fleet-dock">
+                        <h4>Available Ships</h4>
+                        <div class="ship-container">
+                            <div class="ship draggable" data-size="5" data-type="carrier" id="carrier">
+                                <button class="rotate-btn" title="Rotate Ship">↻</button>
+                                <div class="ship-name">Carrier (5)</div>
+                                <div class="ship-visual">
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                </div>
+                            </div>
+                            <div class="ship draggable" data-size="4" data-type="battleship" id="battleship">
+                                <button class="rotate-btn" title="Rotate Ship">↻</button>
+                                <div class="ship-name">Battleship (4)</div>
+                                <div class="ship-visual">
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                </div>
+                            </div>
+                            <div class="ship draggable" data-size="3" data-type="cruiser" id="cruiser">
+                                <button class="rotate-btn" title="Rotate Ship">↻</button>
+                                <div class="ship-name">Cruiser (3)</div>
+                                <div class="ship-visual">
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                </div>
+                            </div>
+                            <div class="ship draggable" data-size="3" data-type="submarine" id="submarine">
+                                <button class="rotate-btn" title="Rotate Ship">↻</button>
+                                <div class="ship-name">Submarine (3)</div>
+                                <div class="ship-visual">
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                </div>
+                            </div>
+                            <div class="ship draggable" data-size="2" data-type="destroyer" id="destroyer">
+                                <button class="rotate-btn" title="Rotate Ship">↻</button>
+                                <div class="ship-name">Destroyer (2)</div>
+                                <div class="ship-visual">
+                                    <div class="ship-cell"></div>
+                                    <div class="ship-cell"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="player-setup-grid">
+                        <h4>Your Waters</h4>
+                        <div class="grid" id="playerSetupGrid"></div>
+                    </div>
+                </div>
+                
+                <div class="setup-controls">
+                    <button id="randomPlacementBtn" class="btn btn-secondary">Random Placement</button>
+                    <button id="clearShipsBtn" class="btn btn-warning">Clear All</button>
+                    <button id="startBattleBtn" class="btn btn-primary" disabled>Start Battle!</button>
+                </div>
+            </div>
+
+            <!-- Battle Phase -->
+            <div class="battle-area" id="battleArea" style="display: none;">
+                <div class="battle-grids">
+                    <div class="player-area">
+                        <h3>Your Fleet</h3>
+                        <div class="grid" id="playerGrid"></div>
+                        <div class="fleet-status" id="playerFleetStatus"></div>
+                    </div>
+                    
+                    <div class="enemy-area">
+                        <h3>Enemy Waters</h3>
+                        <div class="grid" id="enemyGrid"></div>
+                        <div class="fleet-status" id="enemyFleetStatus"></div>
+                    </div>
+                </div>
+                
+                <div class="battle-info">
+                    <div class="turn-info">
+                        <div class="current-turn" id="currentTurn">Your Turn</div>
+                        <div class="shots-remaining" id="shotsRemaining">Shots Remaining: 5</div>
+                    </div>
+                    
+                    <div class="game-stats">
+                        <div class="stat">
+                            <span>Hits: </span>
+                            <span id="playerHits">0</span>
+                        </div>
+                        <div class="stat">
+                            <span>Misses: </span>
+                            <span id="playerMisses">0</span>
+                        </div>
+                        <div class="stat">
+                            <span>Ships Sunk: </span>
+                            <span id="enemyShipsSunk">0/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="newGameBtn" class="btn btn-primary">New Game</button>
+                <button id="soundToggleBtn" class="btn btn-secondary">🔊 Sound</button>
+            </div>
+
+            <!-- Statistics Panel -->
+            <div class="statistics-panel" id="statisticsPanel">
+                <h4>Battle Records</h4>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Games Won:</span>
+                        <span class="stat-value" id="gamesWon">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Games Lost:</span>
+                        <span class="stat-value" id="gamesLost">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Win Rate:</span>
+                        <span class="stat-value" id="winRate">0%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Shots:</span>
+                        <span class="stat-value" id="totalShots">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Accuracy:</span>
+                        <span class="stat-value" id="accuracy">0%</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Minigame Project</p>
+        </footer>
+    </div>
+    
+    <script src="../js/battleship.js"></script>
+</body>
+</html>
